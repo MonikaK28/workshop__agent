@@ -1,0 +1,15 @@
+
+
+
+from openai import OpenAI
+import os
+client = OpenAI(
+    api_key=os.environ.get("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1",
+)
+
+response = client.responses.create(
+    input="What is 4+4 give me the answer only, no explanation",
+    model="openai/gpt-oss-20b",
+)
+print(response.output_text)
